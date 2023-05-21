@@ -1,8 +1,9 @@
-class puzzle1 extends Phaser.Scene
+class Puzzle1 extends Phaser.Scene
 {
     constructor()
     {
-        super();
+        console.log('bruh')
+        super("Puzzle1");
     }
 
     preload ()
@@ -17,9 +18,8 @@ class puzzle1 extends Phaser.Scene
     }
 
     create ()
-    {
-        let gameMoves = 20;
-
+    {   
+        gameMoves = 20;
         //  Create some 'drop zones'
         this.add.image(200,50, 'box').setOrigin(0,0);
 
@@ -35,12 +35,15 @@ class puzzle1 extends Phaser.Scene
         block3.setInteractive({ draggable: true });
         block4.setInteractive({ draggable: true });
         block5.setInteractive({ draggable: true});
-
-        let over1 = false;
-        let over2 = false;
-        let over3 = false;
-        let over4 = false;
-        let over5 = false;
+        let scoreConfig = {fontFamily: 'Courier', 
+            fontSize: '18px', 
+            backgroundColor: '#F3B141', 
+            color: '#843605', 
+            align: 'right', 
+            padding: {top: 5, bottom: 5,}, 
+            fixedWidth: 0}
+        moves = this.add.text(830, 10, `Moves Left: ${gameMoves}`, scoreConfig);
+        keyR = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.R);
 
         this.input.on('drag', (pointer, gameObject, dragX, dragY) => {
 
@@ -48,29 +51,21 @@ class puzzle1 extends Phaser.Scene
 
             dragX = Phaser.Math.Snap.To(dragX, 10);
             dragY = Phaser.Math.Snap.To(dragY, 10);
-
+            if(Phaser.Input.Keyboard.JustDown(keyR)){
+                gameObject.setAngle();
+            }
             gameObject.setPosition(dragX, dragY);
 
         });
 
         //  The following code just checks to see if the gameObject is over
         //  a zone when the drag ends and if so, we change frame and disable it
-        let gameWin = false;
         this.input.on('dragend', (pointer, gameObject) => {
-            
-            this.gameMoves -= 1;
+            gameMoves -= 1;
             const x = gameObject.x;
             const y = gameObject.y;
             //for debugging purposes
-            console.log(`X: ${gameObject.x}\nY: ${gameObject.y}`);
-            if(over1 && over2 && over3 && over4 && over5){
-                this.gameWin = true;
-                console.log('You won, congrats');
-            }
-            if(this.gameMoves <= 0 && !gameWin){
-                console.log('You\'re out of moves. \nGame Over');
-                gameLose();
-            }
+            console.log(`X: ${gameObject.x}\nY: ${gameObject.y}\nMoves Left: ${gameMoves}\nPieces locked in place:\nBook: ${over1}\nPillow: ${over2}\nFlour: ${over3}\nShirt: ${over4}\nBulb: ${over5}`);
             if (x === 580 && y === 480 && !over1 && gameObject == block1)
             {
                 over1 = true;
@@ -94,16 +89,18 @@ class puzzle1 extends Phaser.Scene
                 over5 = true;
                 gameObject.disableInteractive();
             }
-
         });
     }
-    gameLose(){
-        this.block1.disableInteractive();
-        this.block2.disableInteractive()
-        this.block3.disableInteractive()
-        this.block4.disableInteractive()
-        this.block5.disableInteractive()
+    update(){
+        moves.setText(`Moves Left: ${gameMoves}`)
+        //console.log(`${over1}\n${this.over2}\n${this.over3}\n${this.over4}\n${this.over5}`)
+        if(over1 && over2 && over3 && over4 && over5){
+            this.gameWin = true;
+            console.log('You won, congrats');
+        }
+        if(gameMoves <= 0 && !gameWin){
+            console.log('You\'re out of moves. \nGame Over');
+            this.scene.start('Start')
+        }
     }
-}
-
-
+}   
