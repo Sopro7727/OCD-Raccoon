@@ -7,13 +7,12 @@ class Puzzle1 extends Phaser.Scene
 
     preload ()
     {
-        this.load.path = './assets/';        
-        this.load.image('box', 'Cardboard_Box_Puzzle_Grid.png');
-        this.load.image('book', 'puzzleBook.png');
-        this.load.image('flour', 'puzzleFlour.png');
-        this.load.image('pillow', 'puzzlePillow.png');
-        this.load.image('shirt', 'puzzleShirt.png');
-        this.load.image('bulb', 'puzzleLightbulb.png');
+        this.load.image('box', './assets/Cardboard_Box_Puzzle_Grid.png');
+        this.load.image('book', './assets/puzzleBook.png');
+        this.load.image('flour', './assets/puzzleFlour.png');
+        this.load.image('pillow', './assets/puzzlePillow.png');
+        this.load.image('shirt', './assets/puzzleShirt.png');
+        this.load.image('bulb', './assets/puzzleLightbulb.png');
     }
 
     create ()
