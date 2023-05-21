@@ -1,4 +1,4 @@
-class puzzle1 extends Phaser.Scene
+class Puzzle1 extends Phaser.Scene
 {
     constructor()
     {
