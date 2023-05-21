@@ -94,9 +94,20 @@ class Puzzle1 extends Phaser.Scene
             this.gameWin = true;
             console.log('You won, congrats');
             this.gameWin = false;
+            over1 = false;
+            over1 = false;
+            over1 = false;
+            over1 = false;
+            over1 = false;
             this.scene.start('Start')
         }
         if(gameMoves <= 0 && !gameWin){
+            over1 = false;
+            over1 = false;
+            over1 = false;
+            over1 = false;
+            over1 = false;
+            this.gameWin = false;
             console.log('You\'re out of moves. \nGame Over');
             this.scene.start('Start')
         }
