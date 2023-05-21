@@ -50,9 +50,6 @@ class puzzle1 extends Phaser.Scene
 
             dragX = Phaser.Math.Snap.To(dragX, 10);
             dragY = Phaser.Math.Snap.To(dragY, 10);
-            if(Phaser.Input.Keyboard.JustDown(keyR)){
-                gameObject.setAngle();
-            }
             gameObject.setPosition(dragX, dragY);
 
         });
