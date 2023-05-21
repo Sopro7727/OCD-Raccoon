@@ -17,6 +17,8 @@ class Puzzle1 extends Phaser.Scene
 
     create ()
     {   
+        console.log(over1)
+        over1 = false;
         gameMoves = 20;
         //  Create some 'drop zones'
         this.add.image(200,50, 'box').setOrigin(0,0);
