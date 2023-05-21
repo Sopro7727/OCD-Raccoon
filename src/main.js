@@ -2,8 +2,8 @@ const config = {
     type: Phaser.AUTO,
     width: 1000,
     height: 800,
-    parent: 'phaser-example',
-    scene: Example
+    backgroundColor: 'rgba(100,0,0,0)',
+    scene: puzzle1
 };
 
 const game = new Phaser.Game(config);
