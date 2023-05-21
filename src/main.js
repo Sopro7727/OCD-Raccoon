@@ -1,12 +1,12 @@
-let config = {
+const config = {
     type: Phaser.AUTO,
     width: 1000,
     height: 800,
-    scene: [Puzzle]
-}
+    parent: 'phaser-example',
+    scene: Example
+};
 
-let game = new Phaser.game(config);
-
+const game = new Phaser.Game(config);
 let borderUISize = game.config.height/15;
 let borderPadding = borderUISize/3;
 let centerX = game.config.width/2;
