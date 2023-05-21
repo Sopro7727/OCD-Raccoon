@@ -55,7 +55,7 @@ class puzzle1 extends Phaser.Scene
 
         //  The following code just checks to see if the gameObject is over
         //  a zone when the drag ends and if so, we change frame and disable it
-
+        let gameWin = false;
         this.input.on('dragend', (pointer, gameObject) => {
             
             this.gameMoves -= 1;
@@ -63,7 +63,14 @@ class puzzle1 extends Phaser.Scene
             const y = gameObject.y;
             //for debugging purposes
             console.log(`X: ${gameObject.x}\nY: ${gameObject.y}`);
-
+            if(over1 && over2 && over3 && over4 && over5){
+                this.gameWin = true;
+                console.log('You won, congrats');
+            }
+            if(this.gameMoves <= 0 && !gameWin){
+                console.log('You\'re out of moves. \nGame Over');
+                gameLose();
+            }
             if (x === 580 && y === 480 && !over1 && gameObject == block1)
             {
                 over1 = true;
@@ -89,6 +96,13 @@ class puzzle1 extends Phaser.Scene
             }
 
         });
+    }
+    gameLose(){
+        this.block1.disableInteractive();
+        this.block2.disableInteractive()
+        this.block3.disableInteractive()
+        this.block4.disableInteractive()
+        this.block5.disableInteractive()
     }
 }
 
