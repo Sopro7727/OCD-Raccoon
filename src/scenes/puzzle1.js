@@ -1,4 +1,4 @@
-class puzzle1 extends Phaser.Scene
+class Puzzle1 extends Phaser.Scene
 {
     constructor()
     {
@@ -13,7 +13,7 @@ class puzzle1 extends Phaser.Scene
         this.load.image('flour', 'puzzleFlour.png');
         this.load.image('pillow', 'puzzlePillow.png');
         this.load.image('shirt', 'puzzleShirt.png');
-        this.load.image('bulb', 'puzzleLightBulb.png');
+        this.load.image('bulb', 'puzzleLightbulb.png');
     }
 
     create ()
