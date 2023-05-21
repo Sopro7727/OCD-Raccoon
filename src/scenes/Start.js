@@ -20,7 +20,7 @@ class Start extends Phaser.Scene{
         this.add.tileSprite(0,0,1000,800,'bg').setOrigin(0,0);
         this.add.text(game.config.width/2, game.config.height/2 - borderUISize - 
         borderPadding, "Oscar: Critter Detective", menuConfig).setOrigin(0.5);
-        this.add.text(game.config.width/2, game.config.height/2, "Place Objects into the box so they all fit", menuConfig).setOrigin(0.5);
+        this.add.text(game.config.width/2, game.config.height/2, "Drag Objects with Mouse into the box so they all fit", menuConfig).setOrigin(0.5);
         menuConfig.backgroundColor = '#00FF00';
         menuConfig.color = '#000';
         this.add.text(game.config.width/2, game.config.height/2 + borderUISize + borderPadding, "Press Enter to Begin", menuConfig).setOrigin(0.5);
