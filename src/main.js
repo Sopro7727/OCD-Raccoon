@@ -3,11 +3,10 @@ const config = {
     width: 1000,
     height: 800,
     backgroundColor: 'rgba(100,100,0,0)',
-    scene: [Start, Puzzle1]
+    scene: [Start, puzzle1]
 }
 
 const game = new Phaser.Game(config);
-//console.log('bruh')
 let borderUISize = game.config.height/15;
 let borderPadding = borderUISize/3;
 let centerX = game.config.width/2;

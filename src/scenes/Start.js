@@ -3,8 +3,10 @@ class Start extends Phaser.Scene{
         console.log('bruh')
         super('Start')
     }
+    preload(){
+        this.load.image('bg', './assets/TitleBackground.png')
+    }
     create(){
-        console.log('bruh')
         let menuConfig = {
             fontFamily: 'Courier', 
             fontSize: '28px', 
@@ -15,6 +17,7 @@ class Start extends Phaser.Scene{
             fixedWidth: 0
         }
         //show menu text
+        this.add.tileSprite(0,0,1000,800,'bg').setOrigin(0,0);
         this.add.text(game.config.width/2, game.config.height/2 - borderUISize - 
         borderPadding, "Oscar: Critter Detective", menuConfig).setOrigin(0.5);
         this.add.text(game.config.width/2, game.config.height/2, "Place Objects into the box so they all fit\nPress R to rotate", menuConfig).setOrigin(0.5);
