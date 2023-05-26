@@ -1,6 +1,5 @@
 class Start extends Phaser.Scene{
     constructor(){
-        console.log('bruh')
         super('Start')
     }
     preload(){

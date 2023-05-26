@@ -47,7 +47,7 @@ class Puzzle1 extends Phaser.Scene
 
         this.input.on('drag', (pointer, gameObject, dragX, dragY) => {
 
-            //  This will snap our drag to a 64x64 grid
+            //  This will snap our drag to a 10x10 grid
 
             dragX = Phaser.Math.Snap.To(dragX, 10);
             dragY = Phaser.Math.Snap.To(dragY, 10);
@@ -62,7 +62,7 @@ class Puzzle1 extends Phaser.Scene
             const x = gameObject.x;
             const y = gameObject.y;
             //for debugging purposes
-            console.log(`X: ${gameObject.x}\nY: ${gameObject.y}\nMoves Left: ${gameMoves}\nPieces locked in place:\nBook: ${over1}\nPillow: ${over2}\nFlour: ${over3}\nShirt: ${over4}\nBulb: ${over5}`);
+            //console.log(`X: ${gameObject.x}\nY: ${gameObject.y}\nMoves Left: ${gameMoves}\nPieces locked in place:\nBook: ${over1}\nPillow: ${over2}\nFlour: ${over3}\nShirt: ${over4}\nBulb: ${over5}`);
             if (x === 580 && y === 480 && !over1 && gameObject == block1)
             {
                 over1 = true;
