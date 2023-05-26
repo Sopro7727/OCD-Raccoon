@@ -102,7 +102,7 @@ class Puzzle1 extends Phaser.Scene
             over5 = false;
             this.scene.start('Start')
         }
-        if(gameMoves <= 0 && !gameWin){
+        else if(gameMoves <= 0 && !gameWin){
             over1 = false;
             over2 = false;
             over3 = false;
