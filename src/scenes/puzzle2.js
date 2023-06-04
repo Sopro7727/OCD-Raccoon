@@ -1,18 +1,19 @@
-class Puzzle1 extends Phaser.Scene
+class Puzzle2 extends Phaser.Scene
 {
     constructor()
     {
-        super("Puzzle1");
+        super("Puzzle2");
     }
 
     preload ()
     {
         this.load.image('box', './assets/Cardboard_Box_Puzzle_Grid.png');
-        this.load.image('book', './assets/puzzleBook.png');
-        this.load.image('flour', './assets/puzzleFlour.png');
-        this.load.image('pillow', './assets/puzzlePillow.png');
-        this.load.image('shirt', './assets/puzzleShirt.png');
-        this.load.image('bulb', './assets/puzzleLightbulb.png');
+        this.load.image('shovel', './assets/puzzleshovel.png');
+        this.load.image('bottle', './assets/puzzlebottle.png');
+        this.load.image('brokenshovel', './assets/puzzlebrokenshovel.png');
+        this.load.image('watercan', './assets/puzzlewateringcan.png');
+        this.load.image('board', './assets/puzzleboard.png');
+        this.load.image('BLOCKED', './assets/puzzleblockedsquares.png');
         this.load.audio('sfx_correctspot', './assets/correct.wav');
     }
 
@@ -25,17 +26,19 @@ class Puzzle1 extends Phaser.Scene
         this.add.image(200,50, 'box').setOrigin(0,0);
 
         //  The blocks we can drag
-        const block1 = this.add.sprite(64, 192, 'book').setOrigin(0, 0);
-        const block2 = this.add.sprite(64, 320, 'pillow').setOrigin(0, 0);
-        const block3 = this.add.sprite(64, 448, 'flour').setOrigin(0, 0);
-        const block4 = this.add.sprite(64,576, 'shirt').setOrigin(0,0);
-        const block5 = this.add.sprite(200, 70, 'bulb').setOrigin(0,0);
+        const blocked = this.add.sprite(530, 380, 'BLOCKED').setOrigin(0,0);
+        const block1 = this.add.sprite(64, 192, 'shovel').setOrigin(0, 0);
+        const block2 = this.add.sprite(64, 320, 'bottle').setOrigin(0, 0);
+        const block3 = this.add.sprite(64, 448, 'brokenshovel').setOrigin(0, 0);
+        const block4 = this.add.sprite(64,576, 'watercan').setOrigin(0,0);
+        const block5 = this.add.sprite(200, 70, 'board').setOrigin(0,0);
 
         block1.setInteractive({ draggable: true });
         block2.setInteractive({ draggable: true });
         block3.setInteractive({ draggable: true });
         block4.setInteractive({ draggable: true });
         block5.setInteractive({ draggable: true});
+
         let scoreConfig = {fontFamily: 'Courier', 
             fontSize: '18px', 
             backgroundColor: '#F3B141', 
@@ -63,14 +66,14 @@ class Puzzle1 extends Phaser.Scene
             const x = gameObject.x;
             const y = gameObject.y;
             //for debugging purposes
-            //console.log(`X: ${gameObject.x}\nY: ${gameObject.y}\nMoves Left: ${gameMoves}\nPieces locked in place:\nBook: ${over1}\nPillow: ${over2}\nFlour: ${over3}\nShirt: ${over4}\nBulb: ${over5}`);
-            if (x === 580 && y === 480 && !over1 && gameObject == block1)
+            console.log(`X: ${gameObject.x}\nY: ${gameObject.y}\nMoves Left: ${gameMoves}\nPieces locked in place:\nBook: ${over1}\nPillow: ${over2}\nFlour: ${over3}\nShirt: ${over4}\nBulb: ${over5}`);
+            if (x === 480 && y === 230 && !over1 && gameObject == block1)
             {
                 over1 = true;
                 this.sound.play('sfx_correctspot');
                 gameObject.disableInteractive();
             }
-            else if (x === 380 && y === 430 && !over2 && gameObject == block2)
+            else if (x === 380 && y === 230 && !over2 && gameObject == block2)
             {
                 over2 = true;
                 gameObject.disableInteractive();
@@ -82,12 +85,12 @@ class Puzzle1 extends Phaser.Scene
                 gameObject.disableInteractive();
                 this.sound.play('sfx_correctspot');
             }
-            else if(x === 380 && y === 230 && !over4 && gameObject == block4){
+            else if(x === 380 && y === 430 && !over4 && gameObject == block4){
                 over4 = true;
                 gameObject.disableInteractive();
                 this.sound.play('sfx_correctspot');
             }
-            else if(x === 530 && y === 380 && !over5 && gameObject == block5){
+            else if(x === 680 && y === 280 && !over5 && gameObject == block5){
                 over5 = true;
                 gameObject.disableInteractive();
                 this.sound.play('sfx_correctspot');
@@ -106,7 +109,7 @@ class Puzzle1 extends Phaser.Scene
             over3 = false;
             over4 = false;
             over5 = false;
-            this.scene.start('Puzzle2')
+            this.scene.start('endGame')
         }
         else if(gameMoves <= 0 && !gameWin){
             over1 = false;
