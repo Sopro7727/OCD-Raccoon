@@ -13,6 +13,7 @@ class Puzzle1 extends Phaser.Scene
         this.load.image('pillow', './assets/puzzlePillow.png');
         this.load.image('shirt', './assets/puzzleShirt.png');
         this.load.image('bulb', './assets/puzzleLightbulb.png');
+        this.load.audio('sfx_correctspot', './assets/correct.wav');
     }
 
     create ()
@@ -66,25 +67,30 @@ class Puzzle1 extends Phaser.Scene
             if (x === 580 && y === 480 && !over1 && gameObject == block1)
             {
                 over1 = true;
+                this.sound.play('sfx_correctspot');
                 gameObject.disableInteractive();
             }
             else if (x === 380 && y === 430 && !over2 && gameObject == block2)
             {
                 over2 = true;
                 gameObject.disableInteractive();
+                this.sound.play('sfx_correctspot');
             }
             else if (x === 580 && y === 230 && !over3 && gameObject == block3)
             {
                 over3 = true;
                 gameObject.disableInteractive();
+                this.sound.play('sfx_correctspot');
             }
             else if(x === 380 && y === 230 && !over4 && gameObject == block4){
                 over4 = true;
                 gameObject.disableInteractive();
+                this.sound.play('sfx_correctspot');
             }
             else if(x === 530 && y === 380 && !over5 && gameObject == block5){
                 over5 = true;
                 gameObject.disableInteractive();
+                this.sound.play('sfx_correctspot');
             }
         });
     }
