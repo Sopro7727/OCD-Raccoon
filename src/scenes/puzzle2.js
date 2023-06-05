@@ -23,7 +23,7 @@ class Puzzle2 extends Phaser.Scene
         over1 = false;
         gameMoves = 20;
         //  Create some 'drop zones'
-        this.add.image(200,50, 'box').setOrigin(0,0);
+        this.add.image(205,55, 'box').setOrigin(0,0);
 
         //  The blocks we can drag
         const blocked = this.add.sprite(530, 380, 'BLOCKED').setOrigin(0,0);
