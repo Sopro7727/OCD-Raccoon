@@ -8,11 +8,11 @@ class Puzzle1 extends Phaser.Scene
     preload ()
     {
         this.load.image('box', './assets/Cardboard_Box_Puzzle_Grid.png');
-        this.load.image('book', './assets/puzzleBook.png');
+        this.load.image('book', './assets/book.png');
         this.load.image('flour', './assets/puzzleFlour.png');
-        this.load.image('pillow', './assets/puzzlePillow.png');
-        this.load.image('shirt', './assets/puzzleShirt.png');
-        this.load.image('bulb', './assets/puzzleLightbulb.png');
+        this.load.image('pillow', './assets/pillow.png');
+        this.load.image('shirt', './assets/shirt.png');
+        this.load.image('bulb', './assets/lightbulb.png');
         this.load.audio('sfx_correctspot', './assets/correct.wav');
     }
 
