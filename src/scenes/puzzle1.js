@@ -63,7 +63,7 @@ class Puzzle1 extends Phaser.Scene
             const x = gameObject.x;
             const y = gameObject.y;
             //for debugging purposes
-            //console.log(`X: ${gameObject.x}\nY: ${gameObject.y}\nMoves Left: ${gameMoves}\nPieces locked in place:\nBook: ${over1}\nPillow: ${over2}\nFlour: ${over3}\nShirt: ${over4}\nBulb: ${over5}`);
+            console.log(`X: ${gameObject.x}\nY: ${gameObject.y}\nMoves Left: ${gameMoves}\nPieces locked in place:\nBook: ${over1}\nPillow: ${over2}\nFlour: ${over3}\nShirt: ${over4}\nBulb: ${over5}`);
             if (x === 580 && y === 480 && !over1 && gameObject == block1)
             {
                 over1 = true;
@@ -95,6 +95,9 @@ class Puzzle1 extends Phaser.Scene
         });
     }
     update(){
+        if(!music.isPlaying){
+            music.play();
+        }
         moves.setText(`Moves Left: ${gameMoves}`)
         //console.log(`${over1}\n${this.over2}\n${this.over3}\n${this.over4}\n${this.over5}`)
         if(over1 && over2 && over3 && over4 && over5){

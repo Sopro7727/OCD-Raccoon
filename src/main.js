@@ -2,7 +2,7 @@ const config = {
     type: Phaser.AUTO,
     width: 1000,
     height: 800,
-    backgroundColor: 'rgba(100,100,0,0)',
+    backgroundColor: "rgb(25,25,112)",
     scene: [Start, Puzzle1, Puzzle2, endGame]
 }
 
@@ -22,4 +22,4 @@ let over5 = false;
 let gameWin = false;
 let gameMoves;
 let moves = null;
-
+let music = null;

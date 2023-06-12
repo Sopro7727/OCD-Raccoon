@@ -3,7 +3,8 @@ class Start extends Phaser.Scene{
         super('Start')
     }
     preload(){
-        this.load.image('bg', './assets/TitleBackground.png')
+        this.load.image('bg', './assets/titleScreen.png');
+        this.load.audio('bgm', './assets/backgroundMusic.wav');
     }
     create(){
         let menuConfig = {
@@ -16,13 +17,15 @@ class Start extends Phaser.Scene{
             fixedWidth: 0
         }
         //show menu text
+        music = this.sound.add('bgm', {volume: 0.25})
+        music.play();
         this.add.tileSprite(0,0,1000,800,'bg').setOrigin(0,0);
-        this.add.text(game.config.width/2, game.config.height/2 - borderUISize - 
-        borderPadding, "Oscar: Critter Detective", menuConfig).setOrigin(0.5);
-        this.add.text(game.config.width/2, game.config.height/2, "Drag Objects with Mouse into the box so they all fit", menuConfig).setOrigin(0.5);
+        /*this.add.text(game.config.width/2, game.config.height/2 - borderUISize - 
+        borderPadding, "Oscar: Critter Detective", menuConfig).setOrigin(0.5);*/
+        this.add.text(game.config.width/2, game.config.height/2+200, "Drag Objects with Mouse into the box so they all fit", menuConfig).setOrigin(0.5);
         menuConfig.backgroundColor = '#00FF00';
         menuConfig.color = '#000';
-        this.add.text(game.config.width/2, game.config.height/2 + borderUISize + borderPadding, "Press Enter to Begin", menuConfig).setOrigin(0.5);
+        this.add.text(game.config.width/2, game.config.height/2 + borderUISize + borderPadding+80, "Press Enter to Begin", menuConfig).setOrigin(0.5);
         keyENTER = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.ENTER);
         }
     update(){

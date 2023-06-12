@@ -98,6 +98,9 @@ class Puzzle2 extends Phaser.Scene
         });
     }
     update(){
+        if(!music.isPlaying){
+            music.play();
+        }
         moves.setText(`Moves Left: ${gameMoves}`)
         //console.log(`${over1}\n${this.over2}\n${this.over3}\n${this.over4}\n${this.over5}`)
         if(over1 && over2 && over3 && over4 && over5){
