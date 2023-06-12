@@ -3,7 +3,7 @@ const config = {
     width: 1000,
     height: 800,
     backgroundColor: "rgb(25,25,112)",
-    scene: [Start, Puzzle1, Puzzle2, endGame]
+    scene: [Start, Puzzle3,Puzzle1, Puzzle2,endGame, Credits]
 }
 
 const game = new Phaser.Game(config);
@@ -19,6 +19,9 @@ let over2 = false;
 let over3 = false;
 let over4 = false;
 let over5 = false;
+let over6 = false;
+let over7 = false;
+let over8 = false;
 let gameWin = false;
 let gameMoves;
 let moves = null;

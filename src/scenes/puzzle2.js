@@ -21,7 +21,7 @@ class Puzzle2 extends Phaser.Scene
     {   
         console.log(over1)
         over1 = false;
-        gameMoves = 20;
+        gameMoves = 15;
         //  Create some 'drop zones'
         this.add.image(205,55, 'box').setOrigin(0,0);
 
@@ -112,7 +112,7 @@ class Puzzle2 extends Phaser.Scene
             over3 = false;
             over4 = false;
             over5 = false;
-            this.scene.start('endGame')
+            this.scene.start('puzzle3')
         }
         else if(gameMoves <= 0 && !gameWin){
             over1 = false;

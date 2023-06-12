@@ -22,7 +22,7 @@ class endGame extends Phaser.Scene{
         this.add.text(game.config.width/2, game.config.height/2+200 - borderUISize - 
         borderPadding, "YOU WIN\nThanks for Playing!", menuConfig).setOrigin(0.5);
         this.restart = this.time.delayedCall(5000, ()=> {
-            this.scene.start('Start');
+            this.scene.start('creditScene');
         })
     }
     update(){
